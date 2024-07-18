@@ -1,0 +1,119 @@
+.m-input-icon {
+  background-position: right 8px center;
+  background-repeat: no-repeat;
+  background-size: 20px 20px;
+}
+
+.m-input-icon-search {
+  background-image: url(../../assets/icon/search.png);
+}
+
+.m-toast-icon-success {
+  background-image: url(../../assets/icon/success-48.png);
+}
+
+.m-toast-icon-error {
+  background-image: url(../../assets/icon/error-48.png);
+}
+
+.m-icon-close {
+  background-image: url(../../assets/icon/close-48.png);
+}
+
+.m-icon-close-1 {
+  background-image: url(../../assets/icon/close-1.svg);
+}
+
+.m-icon-delete {
+  background-image: url(../../assets/icon/delete-48.png);
+}
+
+.m-icon-edit {
+  background-image: url(../../assets/icon/edit.svg);
+}
+
+.m-icon-prev {
+  background-image: url(../../assets/icon/prev-48.png);
+}
+
+.btn-icon-svg-prev {
+  width: 24px;
+  height: 24px;
+  background-image: url("../../assets/icon/btn-prev-page.svg");
+  background-repeat: no-repeat;
+  background-position: center;
+  border: none;
+  background-color: transparent;
+}
+
+.btn-icon-svg-next {
+  width: 24px;
+  height: 24px;
+  background-image: url("../../assets/icon/btn-next-page.svg");
+  background-repeat: no-repeat;
+  background-position: center;
+  border: none;
+  background-color: transparent;
+}
+
+.btn-icon-svg-first {
+  width: 24px;
+  height: 24px;
+  background-image: url("../../assets/icon/btn-firstpage.svg");
+  background-repeat: no-repeat;
+  background-position: center;
+  border: none;
+  background-color: transparent;
+}
+
+.btn-icon-svg-last {
+  width: 24px;
+  height: 24px;
+  background-image: url("../../assets/icon/btn-lastpage.svg");
+  background-repeat: no-repeat;
+  background-position: center;
+  border: none;
+  background-color: transparent;
+}
+
+.svg-icon {
+  width: 20px;
+  height: 20px;
+  background-image: url("../../assets/icon/date-picker.svg");
+  background-size: cover; /* Đảm bảo SVG phủ kín khu vực của div */
+  cursor: pointer; /* Thêm hiệu ứng con trỏ khi di chuột qua */
+}
+
+.dashboard-icon {
+  background-image: url(../../assets/icon/dashboard.png);
+}
+
+.report-icon {
+  background-image: url(../../assets/icon/report.png);
+}
+
+.employee-icon {
+  background-image: url(../../assets/icon/dic-employee.png);
+}
+
+.setting-icon {
+  background-image: url(../../assets/icon/setting.svg);
+}
+
+.btn-icon-svg-menu-arrow {
+  width: 24px;
+  height: 24px;
+  background-image: url("../../assets/icon/arrowhead-left-outline.svg");
+  background-repeat: no-repeat;
+  background-position: center;
+  border: none;
+  background-color: transparent;
+}
+
+.excel-icon {
+  background-image: url("../../assets/icon/export-excel-50.png");
+}
+
+.refresh-icon {
+  background-image: url("../../assets/icon/refresh.png");
+}

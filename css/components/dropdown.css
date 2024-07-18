@@ -1,0 +1,25 @@
+.m-dropdown {
+  height: 36px;
+  padding-left: 12px;
+  padding-right: 8px;
+  border-radius: 4px;
+  border: 1px solid #e6e6e6;
+  margin-top: 8px;
+}
+
+.m-dialog .m-dropdown:hover {
+  border: 1px solid #e6e6e6;
+}
+
+.m-dialog .m-dropdown:focus {
+  border: 1px solid #e6e6e6;
+  outline: 1px solid #e6e6e6;
+}
+
+.m-header .m-dropdown:hover {
+  border: none;
+}
+
+.m-dropdown:focus {
+  border: none;
+}

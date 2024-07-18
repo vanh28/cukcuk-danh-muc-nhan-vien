@@ -1,0 +1,50 @@
+.m-paging {
+  position: absolute;
+  bottom: 0;
+  width: calc(100% - 32px);
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  align-content: center;
+  background-color: #eff2f4;
+  box-sizing: border-box;
+  margin-bottom: 12px;
+  margin-left: 16px;
+  flex-shrink: 0;
+  border-bottom-left-radius: 4px;
+  border-bottom-right-radius: 4px;
+}
+
+.m-paging button {
+  height: 24px;
+  width: 24px;
+  margin: 4px;
+  cursor: pointer;
+  background-color: inherit;
+}
+
+.m-paging .m-paging-left {
+  position: absolute;
+  left: 8px;
+  padding-left: 8px;
+}
+
+.m-paging .m-paging-right {
+  align-items: center;
+  justify-content: center;
+  align-content: center;
+  display: flex;
+  position: absolute;
+  right: 8px;
+}
+.m-paging .m-paging-right .m-page-number {
+  display: flex;
+}
+
+.m-paging .m-paging-right .m-page-number .m-page-number-text {
+  padding-right: 8px;
+}
+.m-paging .m-paging-right > div {
+  margin-right: 20px;
+}

@@ -1,0 +1,61 @@
+.m-page-header {
+  display: flex;
+  align-items: center;
+  margin-top: 16px;
+  margin-bottom: 8px;
+  height: 48px;
+  width: 100%;
+  background-color: inherit;
+}
+
+.m-page-header .m-page-title {
+  font-size: 20px;
+  font-weight: 700;
+}
+
+.m-page-header .m-page-btn-add {
+  position: absolute;
+  right: 24px;
+}
+
+.page-content .m-page-input-search {
+  margin-bottom: 24px;
+  margin-left: 16px;
+}
+
+.m-page-toolbar {
+  position: relative;
+  display: flex;
+  height: 48px;
+  width: 100%;
+  background-color: inherit;
+  align-items: center;
+  border-radius: 4px;
+  padding-top: 20px;
+}
+
+.m-page-toolbar .m-button-toolbar {
+  position: absolute;
+  right: 12px;
+}
+
+.m-page-table {
+  overflow-y: scroll;
+  max-height: calc(100% - 120px);
+  position: relative;
+  width: calc(100% - 32px);
+  table-layout: fixed;
+  border-collapse: collapse;
+  height: calc(100vh - 218px);
+  margin-left: 16px;
+  box-sizing: border-box;
+  flex-shrink: 0;
+  border-top-left-radius: 4px;
+  border-top-right-radius: 4px;
+}
+
+.m-page-content-main {
+  position: relative;
+  height: calc(100vh - 148px);
+  background-color: white;
+}

@@ -1,0 +1,8 @@
+.page-content {
+    background-color:#eff2f4;
+    height: calc(100vh - 50px);
+    width: 100%;
+    padding: 0 24px 0px 24px;
+    display: absolute;
+
+}

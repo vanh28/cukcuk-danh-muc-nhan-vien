@@ -1,0 +1,31 @@
+.m-radio {
+}
+
+.m-radio .m-radio-label {
+  font-weight: 400;
+  font-family: GoogleSands;
+  font-size: 14px;
+  margin-bottom: 4px;
+}
+
+.m-radio .m-radio-content {
+  display: flex;
+  margin-top: 16px;
+  margin-bottom: 8px;
+}
+
+.m-radio .m-radio-content .m-radio-item {
+  margin-right: 8px;
+  display: flex;
+}
+
+.m-radio .m-radio-content .m-radio-item label {
+  margin-left: 4px;
+  font-weight: 400;
+  font-family: GoogleSands;
+  font-size: 13px;
+}
+
+.m-radio input[type="radio"] {
+  transform: scale(1.25);
+}

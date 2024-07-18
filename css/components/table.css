@@ -1,0 +1,62 @@
+.m-table {
+  width: 100%;
+  border-collapse: collapse;
+  border: unset;
+  background-color: blue;
+}
+
+.m-table tr {
+  height: 40px;
+  border-bottom: 1px solid #bbbbbb;
+}
+.m-table th {
+  background-color: #eff2f4;
+  font-weight: 700;
+}
+.m-table tr td,
+th {
+  padding-left: 16px;
+  padding-right: 10px;
+}
+
+.m-table tr:hover {
+  background-color: #f5f5f5;
+  cursor: pointer;
+}
+
+.m-table tr .m-table-button button {
+  display: none;
+}
+
+.m-table tr:hover .m-table-button button {
+  display: block;
+}
+.m-table-button {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.m-table td button {
+  margin-right: 4px;
+  height: 30px;
+  width: 30px;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-color: #fff;
+  border: 1px solid #e6e6e6;
+  background-size: 30px 30px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.m-table .text-align-left {
+  text-align: left;
+}
+
+.m-table .text-align-center {
+  text-align: center;
+}
+
+.m-table .text-align-right {
+  text-align: right;
+}
