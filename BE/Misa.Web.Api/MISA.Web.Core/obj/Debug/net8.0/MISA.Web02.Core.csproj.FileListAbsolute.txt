@@ -1,0 +1,15 @@
+D:\Workspace\FE\cukcuk-danh-muc-nhan-vien\BE\Misa.Web.Api\MISA.Web.Core\obj\Debug\net8.0\MISA.Web02.Core.GeneratedMSBuildEditorConfig.editorconfig
+D:\Workspace\FE\cukcuk-danh-muc-nhan-vien\BE\Misa.Web.Api\MISA.Web.Core\obj\Debug\net8.0\MISA.Web02.Core.AssemblyInfoInputs.cache
+D:\Workspace\FE\cukcuk-danh-muc-nhan-vien\BE\Misa.Web.Api\MISA.Web.Core\obj\Debug\net8.0\MISA.Web02.Core.AssemblyInfo.cs
+D:\Workspace\FE\cukcuk-danh-muc-nhan-vien\BE\Misa.Web.Api\MISA.Web.Core\obj\Debug\net8.0\MISA.Web02.Core.csproj.CoreCompileInputs.cache
+D:\Workspace\FE\cukcuk-danh-muc-nhan-vien\BE\Misa.Web.Api\MISA.Web.Core\obj\Debug\net8.0\MISA.Web02.Core.sourcelink.json
+D:\Workspace\FE\cukcuk-danh-muc-nhan-vien\BE\Misa.Web.Api\MISA.Web.Core\bin\Debug\net8.0\MISA.Web02.Core.deps.json
+D:\Workspace\FE\cukcuk-danh-muc-nhan-vien\BE\Misa.Web.Api\MISA.Web.Core\bin\Debug\net8.0\MISA.Web02.Core.dll
+D:\Workspace\FE\cukcuk-danh-muc-nhan-vien\BE\Misa.Web.Api\MISA.Web.Core\bin\Debug\net8.0\MISA.Web02.Core.pdb
+D:\Workspace\FE\cukcuk-danh-muc-nhan-vien\BE\Misa.Web.Api\MISA.Web.Core\obj\Debug\net8.0\MISA.Web02.Core.dll
+D:\Workspace\FE\cukcuk-danh-muc-nhan-vien\BE\Misa.Web.Api\MISA.Web.Core\obj\Debug\net8.0\refint\MISA.Web02.Core.dll
+D:\Workspace\FE\cukcuk-danh-muc-nhan-vien\BE\Misa.Web.Api\MISA.Web.Core\obj\Debug\net8.0\MISA.Web02.Core.pdb
+D:\Workspace\FE\cukcuk-danh-muc-nhan-vien\BE\Misa.Web.Api\MISA.Web.Core\obj\Debug\net8.0\ref\MISA.Web02.Core.dll
+D:\Workspace\FE\cukcuk-danh-muc-nhan-vien\BE\Misa.Web.Api\MISA.Web.Core\obj\Debug\net8.0\MISA.Web02.Core.csproj.AssemblyReference.cache
+D:\Workspace\FE\cukcuk-danh-muc-nhan-vien\BE\Misa.Web.Api\MISA.Web.Core\obj\Debug\net8.0\MISA.Web02.Core.Resources.ResourceVN.resources
+D:\Workspace\FE\cukcuk-danh-muc-nhan-vien\BE\Misa.Web.Api\MISA.Web.Core\obj\Debug\net8.0\MISA.Web02.Core.csproj.GenerateResource.cache

@@ -4,12 +4,16 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 VisualStudioVersion = 17.10.35013.160
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Misa.Web.Api", "Misa.Web.Api\Misa.Web.Api.csproj", "{BEC27350-1B42-4512-BEB5-8476E4E9E5F1}"
+	ProjectSection(ProjectDependencies) = postProject
+		{54388796-4E45-456D-B90D-372B88D759B2} = {54388796-4E45-456D-B90D-372B88D759B2}
+		{E31C599B-FAD1-4258-8B44-05945EE9F8DB} = {E31C599B-FAD1-4258-8B44-05945EE9F8DB}
+	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MISA.Web02.Core", "MISA.Web.Core\MISA.Web02.Core.csproj", "{E31C599B-FAD1-4258-8B44-05945EE9F8DB}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MISA.Web02.Core", "MISA.Web.Core\MISA.Web02.Core.csproj", "{E31C599B-FAD1-4258-8B44-05945EE9F8DB}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MISA.Web02.Infrastructure", "MISA.Web.Infrastructure\MISA.Web02.Infrastructure.csproj", "{54388796-4E45-456D-B90D-372B88D759B2}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MISA.Web02.Infrastructure", "MISA.Web.Infrastructure\MISA.Web02.Infrastructure.csproj", "{54388796-4E45-456D-B90D-372B88D759B2}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Misa.Web02.Api", "Misa.Web02.Api\Misa.Web02.Api.csproj", "{A908795C-2DB9-441E-B87B-53CC10F0B764}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Misa.Web02.Api", "Misa.Web02.Api\Misa.Web02.Api.csproj", "{A908795C-2DB9-441E-B87B-53CC10F0B764}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

@@ -1,9 +1,9 @@
-var builder = WebApplication.CreateBuilder(args);
+﻿var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
 
-// C?u h?nh d?ch v? CORS
+// Cấu hình dịch vụ CORS
 builder.Services.AddCors(options =>
 {
     options.AddPolicy("AllowSpecificOrigin",
@@ -27,7 +27,7 @@ app.UseStaticFiles();
 
 app.UseRouting();
 
-// S? d?ng ch�nh s�ch CORS
+// Sử dụng chính sách CORS
 app.UseCors("AllowSpecificOrigin");
 
 app.UseAuthorization();

@@ -1,0 +1,16 @@
+D:\Workspace\FE\cukcuk-danh-muc-nhan-vien\BE\Misa.Web.Api\MISA.Web.Infrastructure\obj\Debug\net8.0\MISA.Web02.Infrastructure.GeneratedMSBuildEditorConfig.editorconfig
+D:\Workspace\FE\cukcuk-danh-muc-nhan-vien\BE\Misa.Web.Api\MISA.Web.Infrastructure\obj\Debug\net8.0\MISA.Web02.Infrastructure.AssemblyInfoInputs.cache
+D:\Workspace\FE\cukcuk-danh-muc-nhan-vien\BE\Misa.Web.Api\MISA.Web.Infrastructure\obj\Debug\net8.0\MISA.Web02.Infrastructure.AssemblyInfo.cs
+D:\Workspace\FE\cukcuk-danh-muc-nhan-vien\BE\Misa.Web.Api\MISA.Web.Infrastructure\obj\Debug\net8.0\MISA.Web02.Infrastructure.csproj.CoreCompileInputs.cache
+D:\Workspace\FE\cukcuk-danh-muc-nhan-vien\BE\Misa.Web.Api\MISA.Web.Infrastructure\obj\Debug\net8.0\MISA.Web02.Infrastructure.sourcelink.json
+D:\Workspace\FE\cukcuk-danh-muc-nhan-vien\BE\Misa.Web.Api\MISA.Web.Infrastructure\bin\Debug\net8.0\MISA.Web02.Infrastructure.deps.json
+D:\Workspace\FE\cukcuk-danh-muc-nhan-vien\BE\Misa.Web.Api\MISA.Web.Infrastructure\bin\Debug\net8.0\MISA.Web02.Infrastructure.dll
+D:\Workspace\FE\cukcuk-danh-muc-nhan-vien\BE\Misa.Web.Api\MISA.Web.Infrastructure\bin\Debug\net8.0\MISA.Web02.Infrastructure.pdb
+D:\Workspace\FE\cukcuk-danh-muc-nhan-vien\BE\Misa.Web.Api\MISA.Web.Infrastructure\bin\Debug\net8.0\MISA.Web02.Core.dll
+D:\Workspace\FE\cukcuk-danh-muc-nhan-vien\BE\Misa.Web.Api\MISA.Web.Infrastructure\bin\Debug\net8.0\MISA.Web02.Core.pdb
+D:\Workspace\FE\cukcuk-danh-muc-nhan-vien\BE\Misa.Web.Api\MISA.Web.Infrastructure\obj\Debug\net8.0\MISA.Web02.Infrastructure.csproj.AssemblyReference.cache
+D:\Workspace\FE\cukcuk-danh-muc-nhan-vien\BE\Misa.Web.Api\MISA.Web.Infrastructure\obj\Debug\net8.0\MISA.Web.87DDF292.Up2Date
+D:\Workspace\FE\cukcuk-danh-muc-nhan-vien\BE\Misa.Web.Api\MISA.Web.Infrastructure\obj\Debug\net8.0\MISA.Web02.Infrastructure.dll
+D:\Workspace\FE\cukcuk-danh-muc-nhan-vien\BE\Misa.Web.Api\MISA.Web.Infrastructure\obj\Debug\net8.0\refint\MISA.Web02.Infrastructure.dll
+D:\Workspace\FE\cukcuk-danh-muc-nhan-vien\BE\Misa.Web.Api\MISA.Web.Infrastructure\obj\Debug\net8.0\MISA.Web02.Infrastructure.pdb
+D:\Workspace\FE\cukcuk-danh-muc-nhan-vien\BE\Misa.Web.Api\MISA.Web.Infrastructure\obj\Debug\net8.0\ref\MISA.Web02.Infrastructure.dll

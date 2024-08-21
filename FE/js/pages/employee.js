@@ -1,36 +1,42 @@
-const departments = [
-  { departmentID: "04b4f0c7-5246-11ef-9fd0-00163e0c7f26", departmentName: "Phòng Tài chính" },
-  { departmentID: "3304dddb-1b72-607f-25c2-579daad24557", departmentName: "Phòng Công Nghệ Thông Tin" },
-  { departmentID: "39d8f18e-523a-11ef-9fd0-00163e0c7f26", departmentName: "Phòng Marketing" },
-  { departmentID: "49253bd8-5238-11ef-9fd0-00163e0c7f26", departmentName: "Phòng Đào Tạo" },
-  { departmentID: "531dfa0f-5245-11ef-9fd0-00163e0c7f26", departmentName: "Phòng Nhân Sự" },
-  { departmentID: "57cdf8c4-47e3-5560-7e41-c1ec321fe728", departmentName: "Phòng Nghiên cứu và Phát triển" },
-  { departmentID: "740b2743-5236-11ef-9fd0-00163e0c7f26", departmentName: "Phòng Hành Chính" },
-  { departmentID: "804df570-5239-11ef-9fd0-00163e0c7f26", departmentName: "Phòng Kinh Doanh" },
-  { departmentID: "a5a6d3a1-5238-11ef-9fd0-00163e0c7f26", departmentName: "Phòng Kế Toán" },
-  { departmentID: "ab14971d-5245-11ef-9fd0-00163e0c7f26", departmentName: "Phòng Chất Lượng" },
-  { departmentID: "cb7f509c-5237-11ef-9fd0-00163e0c7f26", departmentName: "Phòng Văn Phòng" }
-];
-
-const positions = [
-  { positionID: "11452b0c-768e-5ff7-0d63-eeb1d8ed8cef", positionName: "Thực tập sinh" },
-  { positionID: "142cb08f-7c31-21fa-8e90-67245e8b283e", positionName: "Nhân viên" },
-  { positionID: "17120d02-6ab5-3e43-18cb-66948daf6128", positionName: "Phó phòng" },
-  { positionID: "469b3ece-744a-45d5-957d-e8c757976496", positionName: "Team Leader" },
-  { positionID: "4e272fc4-7875-78d6-7d32-6a1673ffca7c", positionName: "Trưởng phòng" }
-];
-
-
 $(document).ready(function () {
+  var departments;
+  var positions;
   var formMode = "edit";
   var employeeIDForEdit = null;
   var employeeIDForDelete = null;
+  
+  //Cập nhật departments và positions
+  var getPositionsPromise = $.ajax({
+    url: "http://localhost:5122/api/Positions/",
+    method: "GET",
+    dataType: "json",
+  });
+
+  var getDepartmentsPromise = $.ajax({
+    url: "http://localhost:5122/api/Departments/",
+    method: "GET",
+    dataType: "json",
+  });
+
+  // Đợi cho cả hai cuộc gọi API hoàn tất
+  $.when(getPositionsPromise, getDepartmentsPromise)
+    .done(function (positionsResponse, departmentsResponse) {
+      // Gán dữ liệu vào biến positions và departments
+      positions = positionsResponse[0];
+      departments = departmentsResponse[0];
+    })
+    .fail(function (jqXHR, textStatus, errorThrown) {
+      console.error("Lỗi khi lấy dữ liệu:", textStatus, errorThrown);
+    });
+
   hideToast();
-  //Hien thi loading
+  // Hiển thị loading
   loadData();
 
+  // Tìm kiếm bảng nhân viên theo từ khóa
   $("#searchInput").on("keyup", searchTable);
-  //dong mo navbar
+
+  // Đóng/mở navbar
   $(".sibar").click(function () {
     $(".navbar").toggleClass("active");
   });
@@ -38,14 +44,14 @@ $(document).ready(function () {
   $("#btnThuGon").click(function () {
     $(".navbar").toggleClass("active");
   });
-  //xoa form
+  // Xóa form khi nhấn nút xóa
   $(this).on("click", ".m-icon-delete", function () {
     $(".m-warning").css("display", "block");
   });
 
+  // Mở form chỉnh sửa khi nhấn nút chỉnh sửa
   $("#employeeTable").on("click", ".m-icon-edit", function () {
     formMode = "edit";
-    //lay doi tuong
     resetForm();
     let tr = $(this).closest("tr");
     let employee = tr.data("entity");
@@ -72,13 +78,21 @@ $(document).ready(function () {
       ngay_cap_date = ngay_cap_date < 10 ? "0" + ngay_cap_date : ngay_cap_date;
       ngay_cap = `${ngay_cap_year}-${ngay_cap_month}-${ngay_cap_date}`;
     }
-    //
+    console.log(departments);
+    // Tìm phòng ban và vị trí từ dữ liệu
+    var department = departments.find(
+      (dept) => dept.departmentId === employee.departmentId
+    );
+    var position = positions.find(
+      (pos) => pos.positionId === employee.positionId
+    );
 
-    const department = departments.find(dept => dept.departmentID === employee.departmentId);
-    const position = positions.find(pos => pos.positionID === employee.positionId);
+    console.log("Department:", department);
+    console.log("Position:", position);
 
     employeeIDForEdit = employee.employeeId;
-    console.log(employeeIDForEdit);
+
+    // Điền dữ liệu vào form
     $("#txtEmployeeCode").val(employee.employeeCode);
     $("#txtFullName").val(employee.fullName);
     $("#dateDOB").val(newDOB);
@@ -94,7 +108,7 @@ $(document).ready(function () {
     $("#txtNgayCap").val(ngay_cap);
     if (department) {
       $("#cbxPhongBan").val(department.departmentName);
-    } else { 
+    } else {
       $("#cbxPhongBan").val("");
     }
     $("#txtNoiCap").val(employee.nationalityIdPlace);
@@ -109,15 +123,17 @@ $(document).ready(function () {
     $("#txtEmployeeCode").focus();
   });
 
-  //dong form
+  // Đóng form khi nhấn nút đóng hoặc hủy
   $(".m-button-close, .m-button-cancel").click(function () {
     $(".m-warning").hide();
   });
 
+  // Đóng thông báo khi nhấn nút đóng
   $(".m-toast-close").click(function () {
     $(".m-toast-box").hide();
   });
-  //mo form
+
+  // Mở form thêm mới nhân viên
   $("#btn-active").click(function () {
     formMode = "add";
     resetForm();
@@ -134,6 +150,7 @@ $(document).ready(function () {
     $("#txtEmployeeCode").focus();
   });
 
+  // Đóng form thêm mới khi nhấn nút hủy hoặc đóng
   $("#btnCancelAddEm").click(function () {
     $(".m-add-employee.m-dialog").hide();
   });
@@ -142,10 +159,17 @@ $(document).ready(function () {
     $(".m-add-employee.m-dialog").hide();
   });
 
+  // Kiểm tra tính hợp lệ của form thêm mới
   checkFormAddEmployee();
-  //validate form
+
+  // Xử lý sự kiện lưu form
   $("#btnDialogSave").click(function () {
-    let employeeId = employeeIDForEdit;
+    let employeeId = null;
+    if (formMode === "edit") {
+      employeeId = employeeIDForEdit;
+    } else {
+      employeeId = uuid.v4(employeeId);
+    }
     let employeeCode = $("#txtEmployeeCode").val();
     let fullName = $("#txtFullName").val();
     let dob = $("#dateDOB").val();
@@ -163,18 +187,22 @@ $(document).ready(function () {
     let tenNH = $("#txtTenNganHang").val();
     let chiNhanh = $("#txtChiNhanh").val();
 
-    let selectedPosition = positions.find(position => position.positionName === vi_tri);
-    let vi_tri_id = selectedPosition ? selectedPosition.positionID : null;
-    let vi_tri_uuid = vi_tri_id ? uuid.v4(vi_tri_id) : null;
+    // Tìm vị trí từ dữ liệu
+    let selectedPosition = positions.find(
+      (position) => position.positionName == vi_tri
+    );
+    let vi_tri_id = selectedPosition ? selectedPosition.positionId : null;
 
-    let selectedDepartment = departments.find(department => department.departmentName === phong_ban);
-    let departmentId = selectedDepartment ? selectedDepartment.departmentID : null;
-    let departmentIdUuid = departmentId ? uuid.v4(departmentId) : null;
+    // Tìm phòng ban từ dữ liệu
+    let selectedDepartment = departments.find(
+      (department) => department.departmentName == phong_ban
+    );
+    let departmentId = selectedDepartment
+      ? selectedDepartment.departmentId
+      : null;
 
-    let employeeIdUuid = employeeId ? uuid.v4(employeeId) : null;
-    console.log(employeeIDForEdit);
     let employee = {
-      employeeId: employeeIDForEdit,
+      employeeId: employeeId,
       employeeCode: employeeCode,
       fullName: fullName,
       dateOfBirth: dob,
@@ -193,6 +221,7 @@ $(document).ready(function () {
       bankBranch: chiNhanh,
     };
 
+    // Kiểm tra tính hợp lệ của dữ liệu
     let birthDate = new Date(dob);
     let currentDate = new Date();
     currentDate.setHours(0, 0, 0, 0);
@@ -226,7 +255,7 @@ $(document).ready(function () {
       if (formMode == "edit") {
         $.ajax({
           type: "PUT",
-          url: `https://localhost:7182/api/Employees/${employeeIDForEdit}`,
+          url: `http://localhost:5122/api/Employees/${employeeIDForEdit}`,
           data: JSON.stringify(employee),
           dataType: "json",
           contentType: "application/json",
@@ -246,7 +275,7 @@ $(document).ready(function () {
       } else if (formMode == "add") {
         $.ajax({
           type: "POST",
-          url: "https://cukcuk.manhnv.net/api/v1/Employees/",
+          url: "http://localhost:5122/api/Employees/",
           data: JSON.stringify(employee),
           dataType: "json",
           contentType: "application/json",
@@ -268,20 +297,22 @@ $(document).ready(function () {
     }
   });
 
+  //Lấy Id của nhân viên cần xóa
   $("#employeeTable").on("click", ".m-icon-delete", function () {
-    //lay doi tuong
+    //Lấy đối tượng
     let tr = $(this).closest("tr");
     let employee = tr.data("entity");
-    //ngay sinh
+    //Lây Id của đối tượng
     employeeIDForDelete = employee.employeeId;
   });
 
+  // Xóa nhân viên
   $("#btn-delete-employee").click(function () {
     console.log("delete");
     $(".m-loading").show();
     $.ajax({
       type: "DELETE",
-      url: `https://cukcuk.manhnv.net/api/v1/Employees/${employeeIDForDelete}`,
+      url: `http://localhost:5122/api/Employees/${employeeIDForDelete}`,
       success: async function (response) {
         $(".m-loading").hide();
         $(".m-warning").css("display", "none");
@@ -297,11 +328,12 @@ $(document).ready(function () {
   });
 });
 
+// Hàm load dữ liệu từ server
 function loadData(callback) {
   $(".m-loading").show();
   $.ajax({
     type: "GET",
-    url: "https://localhost:7182/api/Employees",
+    url: "http://localhost:5122/api/Employees/",
 
     success: function (employees) {
       const $tbody = $("#employeeTable tbody").empty(); // Xóa các hàng hiện có
@@ -314,7 +346,7 @@ function loadData(callback) {
         let email = employee.email;
         let address = employee.address;
 
-        //chinh sua dob
+        //Chính sửa ngày sinh
         if (dob) {
           dob = new Date(dob);
           let date = dob.getDate();
@@ -364,6 +396,7 @@ function loadData(callback) {
   });
 }
 
+// Hàm tìm kiếm bảng nhân viên theo từ khóa
 function searchTable() {
   var searchInput = $("#searchInput").val().toUpperCase();
   var tr = $("#employeeTable tr").slice(1);
@@ -382,6 +415,7 @@ function searchTable() {
   });
 }
 
+// Hàm reset form
 function resetForm() {
   $("#errorEmployeeCode").hide();
   $("#errorFullName").hide();
@@ -393,8 +427,10 @@ function resetForm() {
   $("#errorEmailValid").hide();
 }
 
+// Hàm kiểm tra tính hợp lệ của form thêm mới
 function checkFormAddEmployee() {
   let isValid = true;
+  // Kiểm tra tính hợp lệ của form thêm mới
   $("#txtEmployeeCode").blur(function () {
     let employeeCode = $(this).val();
     if (employeeCode == "" || employeeCode == null) {
@@ -407,6 +443,7 @@ function checkFormAddEmployee() {
     }
   });
 
+  // Kiểm tra tính hợp lệ của form thêm mới
   $("#txtFullName").blur(function () {
     let fullname = $(this).val();
     if (fullname == "" || fullname == null) {
@@ -419,6 +456,7 @@ function checkFormAddEmployee() {
     }
   });
 
+  // Kiểm tra tính hợp lệ của form thêm mới
   $("#dateDOB").blur(function () {
     let birthDateStr = $(this).val();
     let birthDate = new Date(birthDateStr);
@@ -435,6 +473,7 @@ function checkFormAddEmployee() {
     }
   });
 
+  // Kiểm tra tính hợp lệ của form thêm mới
   $("#txtCMTND").blur(function () {
     let cmtnd = $(this).val();
     if (cmtnd == "" || cmtnd == null) {
@@ -447,6 +486,7 @@ function checkFormAddEmployee() {
     }
   });
 
+  // Kiểm tra tính hợp lệ của form thêm mới
   $("#txtNgayCap").blur(function () {
     let ngay_cap_str = $(this).val();
     let ngay_cap = new Date(ngay_cap_str);
@@ -463,6 +503,7 @@ function checkFormAddEmployee() {
     }
   });
 
+  // Kiểm tra tính hợp lệ của form thêm mới
   $("#txtDTDiDong").blur(function () {
     let sdt = $(this).val();
     if (sdt == "" || sdt == null) {
@@ -475,6 +516,7 @@ function checkFormAddEmployee() {
     }
   });
 
+  // Kiểm tra tính hợp lệ của form thêm mới
   $("#txtEmail").blur(function () {
     let email = $(this).val();
     if (email == "" || email == null) {
@@ -487,6 +529,7 @@ function checkFormAddEmployee() {
     }
   });
 
+  // Kiểm tra tính hợp lệ của form thêm mới
   $("#txtEmail").blur(function () {
     let email = $(this).val();
 
@@ -505,12 +548,14 @@ function checkFormAddEmployee() {
   return isValid;
 }
 
+// Hàm hiển thị thông báo
 function hideToast() {
   $("#mToastSuccess").hide();
   $("#mToastError").hide();
   $("#mToastInvalid").hide();
 }
 
+// Hàm load dữ liệu và hiển thị thông báo
 async function loadDataAndShowToast() {
   await loadData();
   $("#mToastSuccess").fadeIn();

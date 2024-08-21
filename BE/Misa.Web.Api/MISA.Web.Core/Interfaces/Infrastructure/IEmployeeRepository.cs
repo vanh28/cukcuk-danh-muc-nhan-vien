@@ -7,13 +7,8 @@ using MISA.Web02.Core.Entities;
 
 namespace MISA.Web02.Core.Interfaces.Infrastructure
 {
-    public interface IEmployeeRepository
+    public interface IEmployeeRepository : IBaseRepository<Employee>
     {
-        IEnumerable<Employee> GetAll();
-
-        Employee GetById(int id);
-        int Insert(Employee employee);
-        int Update(Employee employee, Guid employeeId);
-        int Delete(Guid employeeId);
+        bool CheckEmployeeCode(string employeeCode);
     }
 }
